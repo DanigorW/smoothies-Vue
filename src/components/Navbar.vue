@@ -3,13 +3,13 @@
       <nav class="nav-extended indigo darken-2">
 
           <div class="nav-content">
-              <router-link to="" >
+              <router-link :to="{name: 'index'}" >
                   <span class="nav-title">{{title.toUpperCase()}}</span>
               </router-link>
 
               <a href="" class="btn-floating btn-large halfway-fab waves-effect waves-light pink">
-                  <router-link to="">
-                      <i class="material-icons">add</i>
+                  <router-link :to="{ name: 'Addsmoothie' }">
+                      <i class="material-icons" >add</i>
                   </router-link>
               </a>
           </div>
@@ -19,7 +19,9 @@
 </template>
 
 <script>
+import db from './firebase/init';
 export default {
+    
     name:'Navbar',
 
     data(){
@@ -27,6 +29,10 @@ export default {
             title: 'Smoothies'
         }
     },
+
+    methods: {
+       
+    }
 
 
 }

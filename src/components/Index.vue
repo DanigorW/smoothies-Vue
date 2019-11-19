@@ -5,9 +5,15 @@
               <i class="material-icons delete" @click="deleteSmoothie(smoothies.id)"> delete</i>
               <h2 class="indigo-text">{{smoothies.title}}</h2>
               <ul class="ingredients">
-                  <li class="chip" v-for="(ing, index) in smoothies.ingredients" :key="index">{{ing}}</li>
+                  <li  class="chip" v-for="(ing, index) in smoothies.ingredients" :key="index">{{ing}}</li>
               </ul>
           </div>
+          <span class="btn-floating btn-large halfway-fab waves-effect waves-light pink">
+              <router-link class="white-text" :to="{name: 'EditSmoothie', params: {smoothie_slug: smoothies.slug}}">
+                  <i class="material-icons">edit</i>
+              </router-link>
+              
+          </span>
       </div>
   </div>
 </template>
@@ -31,11 +37,6 @@ export default {
                  return item.id !== el
              })
          })
-         
-
-    //   this.smoothies = this.smoothies.filter(item => {
-    //       return item.id !== el
-    //    })  
      }
  },
  created(){
@@ -51,8 +52,6 @@ export default {
         })
         
     })
-        
-  
  }
 
 }
@@ -82,6 +81,11 @@ export default {
         cursor: pointer;
         color: #aaa;
         font-size: 1.4rem
+    }
+
+    .ingredients  {
+        
+        text-align: center
     }
 </style>
 
